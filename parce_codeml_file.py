@@ -1,4 +1,5 @@
 'Считывает файл codeml и достает оттуда информацию о велечине dN/dS на филогенетическом дереве БЕЗ названия организмов'
+#таблица создается формата ген - организм - значение
 
 import os
 import re
@@ -12,15 +13,21 @@ table_name = '/home/olga/Documents/Rodents/mt_genome_story/full_MT/underground_m
 label = False
 
 def parce_line(line, ortho_group):
-    dn = re.findall(r'\d+.\d+', line)
-    print(dn)
+    line = line.split(',')
+    print(line)
+    for elem in line:
+        elem = elem.split(' ')
+        # print(elem)
+        # print(elem[1])
+        # print(elem[2][1:])
+    # dn = re.findall(r'\d+.\d+', line)
+    # print(dn)
     #нахдим все цифры в строке. Это и есть значения
-    with open(table_name, 'a') as answer:
-        #записываем их в таблицу
-        answer.write(ortho_group + '\t')
-        for elem in dn:
-            answer.write(elem + '\t')
-        answer.write('\n')
+        with open(table_name, 'a') as answer:
+            #записываем их в таблицу
+            answer.write(ortho_group + '\t')
+            answer.write(elem[1] + '\t' + elem[2][1:])
+            answer.write('\n')
 
 
 def find_line(file, ortho_group):
@@ -31,6 +38,8 @@ def find_line(file, ortho_group):
         for line in f:
             if label:
                 print(line)
+                line = ' ' + line
+                #добавляем пробел в начале строки, чтобы было удобно дальше парсить
                 label = False
                 parce_line(line, ortho_group)
                 #меняем значение label, а саму строку передаем на парсинг
