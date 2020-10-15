@@ -1,2 +1,4 @@
 # work_skripts
-All skripts. that couls be useful for data analysis
+All skripts, that could be useful for data analysis
+
+All comments on Russian, sorry
