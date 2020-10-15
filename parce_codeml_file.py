@@ -1,13 +1,13 @@
-'Считывает файл codeml и достает оттуда информацию о велечине dN/dS на филогенетическом дереве БЕЗ названия организмов'
+'Считывает файл codeml и достает оттуда информацию о велечине dN/dS на филогенетическом дереве'
 #таблица создается формата ген - организм - значение
 
 import os
 import re
 
-directory = '/home/olga/Documents/Rodents/mt_genome_story/full_MT/underground_mitogenomes/PCG/separate genes/results codeml/'
+directory = 'results codeml/'
 #Папка, из котрой будут считываться результаты
 
-table_name = '/home/olga/Documents/Rodents/mt_genome_story/full_MT/underground_mitogenomes/PCG/separate genes/Codeml_free_model_results.txt'
+table_name = 'Codeml_free_model_results.txt'
 #Таблица, в которую будут записываться все результаты
 
 label = False
